@@ -1,12 +1,12 @@
-all : final.elf
+all: final.elf
 
-final.elf : main.o 1.o
-	gcc main.o 1.o -o final.elf
-main.o : main.c MyProject.h
+final.elf: main.o 1.o 2.o
+	gcc main.o 1.o 2.o -o final.elf
+main.o: main.c Myproject.h
 	gcc main.c -c
-1.o : 1.c MyProject.h
+1.o: 1.c Myproject.h
 	gcc 1.c -c
-
-clean : 
+2.o: 2.c Myproject.h
+	gcc 2.c -c
+clean: 
 	rm -rf *.o
-
